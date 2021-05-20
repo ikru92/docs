@@ -8,7 +8,7 @@ on:
     
 jobs:
   windows:
-    runs-on: windows:latest
+    runs-on: windows-latest
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
@@ -16,7 +16,7 @@ jobs:
         run: "Write-Output 'Hello from windows'"
 
   macos:
-    runs-on: macos:latest
+    runs-on: macos-latest
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
       run: echo 'Hello from macos'
 
   ubuntu:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
       run: echo 'hello world from ubuntu'
 
   final:
-    runs-on: windows:latest
+    runs-on: windows-latest
     needs: [windows, macos, ubuntu]
     steps:
     - name: checkout repo
