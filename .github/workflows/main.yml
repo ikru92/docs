@@ -1,0 +1,41 @@
+name: test
+
+on:
+  push:
+    branches:
+    - main
+    - feature/*
+    
+jobs:
+  windows:
+    runs-on: windows:latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: echo os
+        run: "Write-Output 'Hello from windows'"
+
+  macos:
+    runs-on: macos:latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: echo os
+      run: echo 'Hello from macos'
+
+  ubuntu:
+    runs-on: ubuntu:latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: echo os
+      run: echo 'hello world from ubuntu'
+
+  final:
+    runs-on: windows:latest
+    needs: [windows, macos, ubuntu]
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: echo os
+      run: "Write-Output 'All jobs run successfully'"
