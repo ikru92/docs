@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: echo os
         run: "Write-Output 'Hello from windows'"
 
